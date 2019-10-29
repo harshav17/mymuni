@@ -11,7 +11,7 @@ import MapKit
 import UIKit
 
 struct MapView: UIViewRepresentable {
-    private var request: AnyObject?
+    let vehicleLocationRequest = APIRequest(resource: VehicleLocationsResource())
     
     func makeUIView(context: Context) -> MKMapView {
         MKMapView(frame: .zero)
@@ -22,12 +22,32 @@ struct MapView: UIViewRepresentable {
         view.setCenter(coordinate, animated: true)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
         view.setRegion(region, animated: true)
-    }
-    
-    mutating func fetchVehicleLocations() {
-        let vehicleLocationRequest = APIRequest(resource: VehicleLocationsResource())
-        request = vehicleLocationRequest
-        vehicleLocationRequest.load(withCompletion: <#T##([VehicleLocation]?) -> Void#>)
+        
+        var annotationDict : [String: BusAnnotation] = [:]
+        
+        Timer.scheduledTimer(withTimeInterval: 20, repeats: true, block: { time in
+            var annotations  : [BusAnnotation] = []
+            self .vehicleLocationRequest.load(withCompletion: { (vehicleLocations: [VehicleLocation]?) in
+                vehicleLocations?.forEach { location in
+                    let thisCoord = CLLocationCoordinate2D(latitude: Double(location.lat)!, longitude: Double(location.lon)!)
+                    if(annotationDict[location.id] != nil) {
+                        let thisAnnotation = annotationDict[location.id]
+                        thisAnnotation?.coordinate = thisCoord
+                        thisAnnotation?.subtitle = location.secsSinceReport
+                    } else {
+                        let annotation = BusAnnotation(coordinate: thisCoord)
+                        annotation.title = location.dirTag
+                        annotation.subtitle = location.secsSinceReport
+                        annotations.append(annotation)
+                        annotationDict[location.id] = annotation
+                    }
+                }
+                if annotations.count > 0 {
+                    view.addAnnotations(annotations)
+                    annotations = []
+                }
+            })
+        })
     }
 }
 

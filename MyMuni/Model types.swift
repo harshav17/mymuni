@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Wrapper<T: Decodable>: Decodable {
-    let items: [T]
+struct Wrapper<T: Codable>: Codable {
+    let vehicle: [T]
 }
 
 struct VehicleLocation: Codable {

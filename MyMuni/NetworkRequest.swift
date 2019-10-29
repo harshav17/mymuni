@@ -32,9 +32,14 @@ class APIRequest<Resource: APIResource> {
 }
 
 extension APIRequest: NetworkRequest {
-    func decode(_ data: Data) -> APIRequest<Resource>.ModelType? {
-        let wrapper = try? JSONDecoder().decode(Wrapper<Resource.ModelType>.self, from: data)
-        return wrapper?.items
+    func decode(_ data: Data) -> [Resource.ModelType]? {
+        do {
+            let res = try JSONDecoder().decode(Wrapper<Resource.ModelType>.self, from: data)
+            return res.vehicle
+        } catch let error {
+            print(error)
+            return nil
+        }
     }
     
     func load(withCompletion completion: @escaping ([Resource.ModelType]?) -> Void) {
@@ -43,23 +48,23 @@ extension APIRequest: NetworkRequest {
 }
 
 protocol APIResource {
-    associatedtype ModelType: Decodable
+    associatedtype ModelType: Codable
     var methodPath: String { get }
     var queryItems: [URLQueryItem] { get }
 }
 
 extension APIResource {
     var url: URL {
-        var components = URLComponents(string: "http://webservices.nextbus.com/service/publicJSONFeed")
-        components?.path = methodPath
-        components?.queryItems = queryItems
-        return (components?.url)!
+        var components = URLComponents(string: "http://webservices.nextbus.com")!
+        components.path = methodPath
+        components.queryItems = queryItems
+        return components.url!
     }
 }
 
 struct VehicleLocationsResource: APIResource {
     typealias ModelType = VehicleLocation
-    let methodPath = ""
+    let methodPath = "/service/publicJSONFeed"
     let queryItems = [
         URLQueryItem(name: "command", value: "vehicleLocations"),
         URLQueryItem(name: "a", value: "sf-muni"),

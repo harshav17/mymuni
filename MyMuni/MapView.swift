@@ -12,23 +12,34 @@ import UIKit
 
 struct MapView: UIViewRepresentable {
     let vehicleLocationRequest = APIRequest(resource: VehicleLocationsResource())
+    private let locationManager = CLLocationManager()
+    @Binding var favoriteColor: Int
     
     func makeUIView(context: Context) -> MKMapView {
-        MKMapView(frame: .zero)
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.startUpdatingLocation()
+        let view = MKMapView(frame: .zero)
+        view.showsUserLocation = true
+        return view
+    }
+    
+    func makeCoordinator() -> MapViewCoordinator {
+        MapViewCoordinator(self)
     }
     
     func updateUIView(_ view: MKMapView, context: Context) {
-        let coordinate = CLLocationCoordinate2D(latitude: 37.765489, longitude: -122.475369)
-        view.setCenter(coordinate, animated: true)
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-        view.setRegion(region, animated: true)
+        view.removeAnnotations(view.annotations)
+        view.delegate = context.coordinator
         
+        let dirTag = self.$favoriteColor.wrappedValue == 0 ? "O" : "I"
         var annotationDict : [String: BusAnnotation] = [:]
         
-        Timer.scheduledTimer(withTimeInterval: 20, repeats: true, block: { time in
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { time in
             var annotations  : [BusAnnotation] = []
-            self .vehicleLocationRequest.load(withCompletion: { (vehicleLocations: [VehicleLocation]?) in
-                vehicleLocations?.forEach { location in
+            self.vehicleLocationRequest.load(withCompletion: { (vehicleLocations: [VehicleLocation]?) in
+                vehicleLocations?.filter{$0.dirTag!.contains(dirTag)}.forEach { location in
                     let thisCoord = CLLocationCoordinate2D(latitude: Double(location.lat)!, longitude: Double(location.lon)!)
                     if(annotationDict[location.id] != nil) {
                         let thisAnnotation = annotationDict[location.id]
@@ -48,11 +59,5 @@ struct MapView: UIViewRepresentable {
                 }
             })
         })
-    }
-}
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
     }
 }

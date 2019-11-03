@@ -9,7 +9,35 @@
 import Foundation
 
 struct Wrapper<T: Codable>: Codable {
-    let vehicle: [T]
+    let vehicle: [T]?
+}
+
+struct RouteWrapper: Codable {
+    let route: Route
+}
+
+struct Route: Codable {
+    let stop: [Stop]
+    let direction: [Direction]
+}
+
+struct Direction: Codable {
+    let title: String
+    let tag: String
+    let name: String
+    let stop: [DirStop]
+}
+
+struct DirStop: Codable {
+    let tag: String
+}
+
+struct Stop: Codable {
+    let lon: String
+    let lat: String
+    let title: String
+    let stopId: String
+    let tag: String
 }
 
 struct VehicleLocation: Codable {

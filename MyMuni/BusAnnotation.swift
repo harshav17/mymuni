@@ -14,10 +14,10 @@ class BusAnnotation: NSObject, MKAnnotation {
     dynamic var title: String?
     dynamic var subtitle: String?
     
-    init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil) {
-        self.coordinate = coordinate
-        self.title = title
-        self.subtitle = subtitle
+    init(location: VehicleLocation) {
+        self.coordinate = .init(latitude: Double(location.lat)!, longitude: Double(location.lon)!)
+        self.title = location.dirTag
+        self.subtitle = location.secsSinceReport
         
         super.init()
     }

@@ -17,22 +17,28 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customView")
-        annotationView.canShowCallout = true
-        
-        if annotation !== mapView.userLocation {
-            annotationView.image = UIImage(systemName: "tram.fill")
+        if(annotation === mapView.userLocation) {
+            return nil
+        } else if annotation is MKPointAnnotation {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customView")
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "stop")
+            return annotationView
         } else {
-            annotationView.image = UIImage(systemName: "person.fill")
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customView")
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "bus")
+            return annotationView
         }
-        return annotationView
     }
     
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        let coordinate = mapView.userLocation.coordinate
-        mapView.setCenter(coordinate, animated: true)
-        
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-        mapView.setRegion(region, animated: true)
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 3
+            return renderer
+        }
+        return MKOverlayRenderer()
     }
 }

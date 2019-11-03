@@ -68,7 +68,7 @@ struct VehicleLocationsResource: APIResource {
     let queryItems = [
         URLQueryItem(name: "command", value: "vehicleLocations"),
         URLQueryItem(name: "a", value: "sf-muni"),
-        URLQueryItem(name: "r", value: "7")
+        URLQueryItem(name: "r", value: "7X")
     ]
 }
 

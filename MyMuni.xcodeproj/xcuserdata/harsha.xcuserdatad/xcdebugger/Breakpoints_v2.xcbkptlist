@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7229CD64-BC54-4DBB-AE46-AB903FA0DCE2"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E28188DB-D304-4E20-AFE8-1660DD4D4D58"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/BusPicker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E28188DB-D304-4E20-AFE8-1660DD4D4D58 - 264f7d82bee9f8d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyMuni.BusPicker.body.getter : some"
+                  moduleName = "MyMuni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsha/Workspace/mymuni/MyMuni/BusPicker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "E28188DB-D304-4E20-AFE8-1660DD4D4D58 - 81f6d093ae2b1ddd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;MyMuni.SRoute&gt;, MyMuni.SRoute, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.tag&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0&gt; in MyMuni.BusPicker.body.getter : some"
+                  moduleName = "MyMuni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsha/Workspace/mymuni/MyMuni/BusPicker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A75FED60-FC01-4192-9FF9-B83F57F0BA0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/BusPicker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A75FED60-FC01-4192-9FF9-B83F57F0BA0C - 81f6d093ae2b1ddd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;MyMuni.SRoute&gt;, MyMuni.SRoute, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.tag&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0&gt; in MyMuni.BusPicker.body.getter : some"
+                  moduleName = "MyMuni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsha/Workspace/mymuni/MyMuni/BusPicker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "A75FED60-FC01-4192-9FF9-B83F57F0BA0C - bdc2723f6536f3fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MyMuni.SRoute) -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.tag&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;MyMuni.SRoute&gt;, MyMuni.SRoute, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.tag&lt;A where A1: Swift.Hashable&gt;(A1) -&gt; some&gt;&gt;.0&gt; in MyMuni.BusPicker.body.getter : some"
+                  moduleName = "MyMuni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harsha/Workspace/mymuni/MyMuni/BusPicker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "209">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDB84058-6107-4869-A23E-321256EE85BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/BusPicker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A80562F-5DD4-48F1-A84C-AE3615C10488"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getRoute(view:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1CF90FCE-3D56-4C62-9FF1-7C5D2DB95193"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "011FF82F-3F6A-48A4-BA02-BF8F90AA68A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "getBuses(view:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4BEDAD7-DF84-42A5-8558-E8FDF48626C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMuni/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "getBuses(view:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -16,8 +16,8 @@ class BusAnnotation: NSObject, MKAnnotation {
     
     init(location: VehicleLocation) {
         self.coordinate = .init(latitude: Double(location.lat)!, longitude: Double(location.lon)!)
-        self.title = location.dirTag
-        self.subtitle = location.secsSinceReport
+        self.title = "\(location.secsSinceReport) secs ago"
+        self.subtitle = location.dirTag
         
         super.init()
     }

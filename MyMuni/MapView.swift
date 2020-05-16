@@ -11,11 +11,9 @@ import MapKit
 import UIKit
 
 struct MapView: UIViewRepresentable {
-    let vehicleLocationRequest = APIRequest(resource: VehicleLocationsResource())
     private let locationManager = CLLocationManager()
     @Binding var favoriteColor: Int
-    @Binding var locations: [BusAnnotation]
-    var localColor: Int = -1
+    @Binding var refreshCount: Int
     
     func makeUIView(context: Context) -> MKMapView {
         locationManager.requestWhenInUseAuthorization()
@@ -42,18 +40,29 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ view: MKMapView, context: Context) {
         view.delegate = context.coordinator
         
-        //add buses
-        view.removeAnnotations(view.annotations)
-        view.addAnnotations(locations)
-        
         //add route
         view.removeOverlays(view.overlays)
         getRoute(view: view)
+        
+        //add buses
+        view.removeAnnotations(view.annotations)
+        getBuses(view: view)
+    }
+    
+    func isAfterNoon() -> Bool {
+        let now = Date()
+        let noon = Calendar.current.date(
+          bySettingHour: 11,
+          minute: 59,
+          second: 59,
+          of: now)!
+        return now > noon
     }
     
     func getRoute(view: MKMapView) {
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
-        let url = URL(string: "http://webservices.nextbus.com/service/publicJSONFeed?command=routeConfig&a=sf-muni&r=7X")!
+        let bus = SRoute(rawValue: favoriteColor)
+        let url = URL(string: "http://webservices.nextbus.com/service/publicJSONFeed?command=routeConfig&a=sf-muni&r=\(bus?.literal ?? "1")")!
         let task = session.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
             guard let data = data else {
                 print("no values found for stops")
@@ -62,7 +71,8 @@ struct MapView: UIViewRepresentable {
             let wrapper = try? JSONDecoder().decode(RouteWrapper.self, from: data)
             let stops = wrapper?.route.stop
             let directions = wrapper?.route.direction
-            let dirTag = self.$favoriteColor.wrappedValue == 0 ? "O" : "I"
+            //TODO change direction tag based on current time
+            let dirTag = self.isAfterNoon() ? "O" : "I"
             var routeCoordinates: [CLLocationCoordinate2D] = []
             if directions != nil && stops != nil {
                 for direction in directions! {
@@ -85,6 +95,26 @@ struct MapView: UIViewRepresentable {
                 //let stopCoordinates = stops?.map { CLLocationCoordinate2D(latitude: Double($0.lat)!, longitude: Double($0.lon)!) }
                 let polyline = MKPolyline(coordinates: routeCoordinates, count: routeCoordinates.count)
                 view.addOverlay(polyline)
+            }
+        })
+        task.resume()
+    }
+    
+    func getBuses(view: MKMapView) {
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        let bus = SRoute(rawValue: favoriteColor)
+        let url = URL(string: "http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=sf-muni&r=\(bus?.literal ?? "1")")!
+        let task = session.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            guard let data = data else {
+                print("no values found for stops")
+                return
+            }
+            let wrapper = try? JSONDecoder().decode(Wrapper<VehicleLocation>.self, from: data)
+            let vehicleLocations = wrapper?.vehicle
+            if vehicleLocations != nil {
+                let dirTag = self.isAfterNoon() ? "O" : "I"
+                let locations = vehicleLocations?.filter{($0.dirTag != nil && $0.dirTag!.contains(dirTag))}.map{BusAnnotation(location: $0)} ?? []
+                view.addAnnotations(locations)
             }
         })
         task.resume()

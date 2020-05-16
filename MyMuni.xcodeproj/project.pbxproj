@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A143EC6247070B0005D5446 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A143EC5247070B0005D5446 /* Route.swift */; };
+		3A143EC8247071E7005D5446 /* PreferedRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A143EC7247071E7005D5446 /* PreferedRoutes.swift */; };
+		3A143ECA24708A36005D5446 /* BusPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A143EC924708A36005D5446 /* BusPicker.swift */; };
+		3A64AA91246F5D1F00A47846 /* BusList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64AA90246F5D1F00A47846 /* BusList.swift */; };
+		3A64AA93246F5DFF00A47846 /* BusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64AA92246F5DFF00A47846 /* BusRow.swift */; };
 		3A6669E8234326D000D91342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6669E7234326D000D91342 /* AppDelegate.swift */; };
 		3A6669EA234326D000D91342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6669E9234326D000D91342 /* SceneDelegate.swift */; };
 		3A6669EC234326D000D91342 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6669EB234326D000D91342 /* ContentView.swift */; };
@@ -16,8 +21,9 @@
 		3A6669FF234326D400D91342 /* MyMuniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6669FE234326D400D91342 /* MyMuniTests.swift */; };
 		3A666A0A234326D400D91342 /* MyMuniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A666A09234326D400D91342 /* MyMuniUITests.swift */; };
 		3A666A182343271600D91342 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A666A172343271600D91342 /* MapView.swift */; };
-		3A666A1A2343298200D91342 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A666A192343298200D91342 /* NetworkRequest.swift */; };
 		3A666A1C23432DE900D91342 /* Model types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A666A1B23432DE900D91342 /* Model types.swift */; };
+		3ADEBE002367CA74008B7539 /* BusAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADEBDFF2367CA74008B7539 /* BusAnnotation.swift */; };
+		3AE2D0862369917400105DDA /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2D0852369917400105DDA /* MapViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A143EC5247070B0005D5446 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		3A143EC7247071E7005D5446 /* PreferedRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferedRoutes.swift; sourceTree = "<group>"; };
+		3A143EC924708A36005D5446 /* BusPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPicker.swift; sourceTree = "<group>"; };
+		3A64AA8F246EFE7600A47846 /* MyMuni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMuni.entitlements; sourceTree = "<group>"; };
+		3A64AA90246F5D1F00A47846 /* BusList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusList.swift; path = ../../mymuni/MyMuni/BusList.swift; sourceTree = "<group>"; };
+		3A64AA92246F5DFF00A47846 /* BusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusRow.swift; path = ../../mymuni/MyMuni/BusRow.swift; sourceTree = "<group>"; };
 		3A6669E4234326D000D91342 /* MyMuni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMuni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6669E7234326D000D91342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A6669E9234326D000D91342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +65,9 @@
 		3A666A09234326D400D91342 /* MyMuniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMuniUITests.swift; sourceTree = "<group>"; };
 		3A666A0B234326D400D91342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A666A172343271600D91342 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		3A666A192343298200D91342 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		3A666A1B23432DE900D91342 /* Model types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model types.swift"; sourceTree = "<group>"; };
+		3ADEBDFF2367CA74008B7539 /* BusAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnnotation.swift; sourceTree = "<group>"; };
+		3AE2D0852369917400105DDA /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +118,7 @@
 		3A6669E6234326D000D91342 /* MyMuni */ = {
 			isa = PBXGroup;
 			children = (
+				3A64AA8F246EFE7600A47846 /* MyMuni.entitlements */,
 				3A6669E7234326D000D91342 /* AppDelegate.swift */,
 				3A6669E9234326D000D91342 /* SceneDelegate.swift */,
 				3A6669EB234326D000D91342 /* ContentView.swift */,
@@ -113,8 +127,14 @@
 				3A6669F5234326D400D91342 /* Info.plist */,
 				3A6669EF234326D400D91342 /* Preview Content */,
 				3A666A172343271600D91342 /* MapView.swift */,
-				3A666A192343298200D91342 /* NetworkRequest.swift */,
 				3A666A1B23432DE900D91342 /* Model types.swift */,
+				3ADEBDFF2367CA74008B7539 /* BusAnnotation.swift */,
+				3AE2D0852369917400105DDA /* MapViewCoordinator.swift */,
+				3A64AA90246F5D1F00A47846 /* BusList.swift */,
+				3A64AA92246F5DFF00A47846 /* BusRow.swift */,
+				3A143EC5247070B0005D5446 /* Route.swift */,
+				3A143EC7247071E7005D5446 /* PreferedRoutes.swift */,
+				3A143EC924708A36005D5446 /* BusPicker.swift */,
 			);
 			path = MyMuni;
 			sourceTree = "<group>";
@@ -276,12 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE2D0862369917400105DDA /* MapViewCoordinator.swift in Sources */,
 				3A6669E8234326D000D91342 /* AppDelegate.swift in Sources */,
 				3A666A182343271600D91342 /* MapView.swift in Sources */,
+				3ADEBE002367CA74008B7539 /* BusAnnotation.swift in Sources */,
 				3A6669EA234326D000D91342 /* SceneDelegate.swift in Sources */,
+				3A64AA93246F5DFF00A47846 /* BusRow.swift in Sources */,
+				3A143EC8247071E7005D5446 /* PreferedRoutes.swift in Sources */,
 				3A6669EC234326D000D91342 /* ContentView.swift in Sources */,
 				3A666A1C23432DE900D91342 /* Model types.swift in Sources */,
-				3A666A1A2343298200D91342 /* NetworkRequest.swift in Sources */,
+				3A143ECA24708A36005D5446 /* BusPicker.swift in Sources */,
+				3A143EC6247070B0005D5446 /* Route.swift in Sources */,
+				3A64AA91246F5D1F00A47846 /* BusList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyMuni/MyMuni.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MyMuni/Preview Content\"";
 				DEVELOPMENT_TEAM = 77PCW5BGFT;
@@ -457,6 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = soochi.MyMuni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyMuni/MyMuni.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MyMuni/Preview Content\"";
 				DEVELOPMENT_TEAM = 77PCW5BGFT;
@@ -477,6 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = soochi.MyMuni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
